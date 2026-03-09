@@ -16,36 +16,30 @@ pub fn ProjectCard(project: Project) -> impl IntoView {
     let repo_url = project.repo_url; // Option<&'static str> — fine
     let status_label = project.status.label().to_string(); // borrow is gone after this
 
-    view! {
-        <article class="project-card">
-            <div class="project-card-header">
-                <div class="project-card-title-row">
-                    <h3 class="project-card-title">{project.title}</h3>
-                    // <span class=status_class>{project.status_label}</span>
-                </div>
-                <p class="project-card-desc">{project.description}</p>
+   view! {
+    <article class="project-card">
+        <div class="project-card-header">
+            <div class="project-card-title-row">
+                <h3 class="project-card-title">{title}</h3>
+                <span class=status_class>{status_label}</span>
             </div>
-
-            <div class="project-card-tags">
-                {project.tags.iter().map(|tag| view! {
-                    <span class="tag">{*tag}</span>
-                }).collect::<Vec<_>>()}
+            <p class="project-card-desc">{desc}</p>
+        </div>
+        <div class="project-card-tags">
+            {tags.iter().map(|tag| view! {
+                <span class="tag">{*tag}</span>
+            }).collect::<Vec<_>>()}
+        </div>
+        <div class="project-card-footer">
+            <div class="project-card-links">
+                {live_url.map(|url| view! {
+                    <a href=url target="_blank" rel="noopener" class="btn btn-primary">"↗ Live"</a>
+                })}
+                {repo_url.map(|url| view! {
+                    <a href=url target="_blank" rel="noopener" class="btn btn-ghost">"{ } Code"</a>
+                })}
             </div>
-
-            <div class="project-card-footer">
-                <div class="project-card-links">
-                    {project.live_url.map(|url| view! {
-                        <a href=url target="_blank" rel="noopener" class="btn btn-primary">
-                            "↗ Live"
-                        </a>
-                    })}
-                    {project.repo_url.map(|url| view! {
-                        <a href=url target="_blank" rel="noopener" class="btn btn-ghost">
-                            "{ } Code"
-                        </a>
-                    })}
-                </div>
-            </div>
-        </article>
-    }
+        </div>
+    </article>
+}
 }
