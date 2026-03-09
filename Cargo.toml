@@ -1,0 +1,44 @@
+[package]
+name = "rust_portfolio"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+leptos = { version = "0.7", features = [] }
+leptos_meta = { version = "0.7" }
+leptos_router = { version = "0.7" }
+
+# WASM-only
+wasm-bindgen = { version = "0.2", optional = true }
+web-sys = { version = "0.3", optional = true, features = ["Window", "Document", "Element", "HtmlElement", "IntersectionObserver", "IntersectionObserverEntry", "IntersectionObserverInit"] }
+js-sys = { version = "0.3", optional = true }
+
+[features]
+default = []
+hydrate = ["leptos/hydrate", "dep:wasm-bindgen", "dep:web-sys", "dep:js-sys"]
+
+[package.metadata.leptos]
+name = "rust_portfolio"
+output-name = "rust_portfolio"
+site-root = "dist"
+#site-pkg-dir = "pkg"
+style-file = "style/main.css"
+assets-dir = "public"
+site-addr = "127.0.0.1:8080"
+reload-port = 3001
+browser-queries = ["defaults"]
+bin-features = []
+lib-features = ["hydrate"]
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 'z'
+
+[profile.wasm-release]
+inherits = "release"
+opt-level = 'z'
+lto = true
