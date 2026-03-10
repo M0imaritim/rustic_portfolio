@@ -46,7 +46,7 @@ pub fn ContactPage() -> impl IntoView {
                 opts.set_body(&JsValue::from_str(&body));
 
                 let request = Request::new_with_str_and_init(
-                    "https://formspree.io/f/YOUR_FORM_ID",
+                    "https://formspree.io/f/xeojbpjd",
                     &opts,
                 ).unwrap();
 

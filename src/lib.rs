@@ -1,11 +1,25 @@
-use leptos::prelude::*;
-use leptos_meta::*;
-use leptos_router::{components::*, path};
-use wasm_bindgen::prelude::wasm_bindgen;
-
 pub mod components;
 pub mod data;
 pub mod pages;
+
+#[cfg(feature = "hydrate")]
+#[wasm_bindgen::prelude::wasm_bindgen(start)]
+pub fn main() {
+    // set up logging
+    _ = console_log::init_with_level(log::Level::Debug);
+    console_error_panic_hook::set_once();
+
+    mount_to_body(|| {
+        view! {
+            <App />
+        }
+    })
+}
+
+
+use leptos::prelude::*;
+use leptos_meta::*;
+use leptos_router::{components::*, path};
 
 use crate::pages::{home::HomePage, projects::ProjectsPage, iot::IoTPage, contact::ContactPage, not_found::NotFound};
 use crate::components::nav::Nav;
@@ -32,17 +46,4 @@ pub fn App() -> impl IntoView {
             </main>
         </Router>
     }
-}
-
-#[wasm_bindgen(start)]
-pub fn main() {
-    // set up logging
-    _ = console_log::init_with_level(log::Level::Debug);
-    console_error_panic_hook::set_once();
-
-    mount_to_body(|| {
-        view! {
-            <App />
-        }
-    })
 }
