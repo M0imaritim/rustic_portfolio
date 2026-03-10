@@ -91,7 +91,7 @@ pub fn get_projects() -> Vec<Project> {
             description: "Digital platform for one of Kenya's most popular Swahili radio stations.",
             long_description: "Official digital home for Radio Jambo — live streaming, news, and entertainment for their online Swahili-speaking audience.",
             tags: &["Next.js", "React", "Streaming"],
-            live_url: Some("https://radio-jambo.co.ke"),
+            live_url: Some("https://radiojambo.co.ke"),
             repo_url: None,
             image: "/public/images/radio-jambo.png",
             featured: false,

@@ -1,16 +1,48 @@
-pub mod app;
+use leptos::prelude::*;
+use leptos_meta::*;
+use leptos_router::{components::*, path};
+use wasm_bindgen::prelude::wasm_bindgen;
+
 pub mod components;
 pub mod data;
 pub mod pages;
 
-#[cfg(feature = "hydrate")]
-mod hydrate {
-    use wasm_bindgen::prelude::*;
+use crate::pages::{home::HomePage, projects::ProjectsPage, iot::IoTPage, contact::ContactPage, not_found::NotFound};
+use crate::components::nav::Nav;
 
-    #[wasm_bindgen(start)]
-    pub fn main() {
-        use crate::app::App;
-        _ = console_log::init_with_level(log::Level::Debug); // optional
-        leptos::mount::mount_to_body(App);
+#[component]
+pub fn App() -> impl IntoView {
+    provide_meta_context();
+
+    view! {
+        <Title text="Langat Moimaritim | Software Engineer"/>
+        <Meta charset="UTF-8" />
+        <Meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <Meta name="og:title" content="Langat Moimaritim | Software Engineer"/>
+        <Meta name="og:description" content="Full stack engineer diving deep into Rust — Leptos, Axum, and beyond."/>
+        <Router>
+            <Nav/>
+            <main>
+                <Routes fallback=|| view! { <NotFound/> }>
+                    <Route path=path!("/") view=HomePage/>
+                    <Route path=path!("/projects") view=ProjectsPage/>
+                    <Route path=path!("/iot") view=IoTPage/>
+                    <Route path=path!("/contact") view=ContactPage/>
+                </Routes>
+            </main>
+        </Router>
     }
+}
+
+#[wasm_bindgen(start)]
+pub fn main() {
+    // set up logging
+    _ = console_log::init_with_level(log::Level::Debug);
+    console_error_panic_hook::set_once();
+
+    mount_to_body(|| {
+        view! {
+            <App />
+        }
+    })
 }

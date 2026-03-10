@@ -7,6 +7,7 @@ pub fn ContactPage() -> impl IntoView {
     let (message, set_message) = signal(String::new());
     let (submitted, set_submitted) = signal(false);
     let (error, set_error) = signal(Option::<String>::None);
+    let (loading, set_loading) = signal(false);
 
     let on_submit = move |ev: leptos::ev::SubmitEvent| {
         ev.prevent_default();
@@ -19,15 +20,62 @@ pub fn ContactPage() -> impl IntoView {
             set_error.set(Some("Please fill in all fields.".to_string()));
             return;
         }
-
         if !e.contains('@') {
             set_error.set(Some("Please enter a valid email.".to_string()));
             return;
         }
 
         set_error.set(None);
-        // TODO: wire to Axum server action for actual email sending (Resend / SendGrid)
-        set_submitted.set(true);
+        set_loading.set(true);
+
+        let body = format!(
+            r#"{{"name":"{}","email":"{}","message":"{}"}}"#,
+            n, e, m
+        );
+
+        #[cfg(feature = "hydrate")]
+        {
+            use wasm_bindgen::JsValue;
+            use wasm_bindgen_futures::spawn_local;
+            use web_sys::{Request, RequestInit, RequestMode, Response};
+
+            spawn_local(async move {
+                let mut opts = RequestInit::new();
+                opts.set_method("POST");
+                opts.set_mode(RequestMode::Cors);
+                opts.set_body(&JsValue::from_str(&body));
+
+                let request = Request::new_with_str_and_init(
+                    "https://formspree.io/f/YOUR_FORM_ID",
+                    &opts,
+                ).unwrap();
+
+                request.headers().set("Content-Type", "application/json").unwrap();
+                request.headers().set("Accept", "application/json").unwrap();
+
+                let window = web_sys::window().unwrap();
+                let resp: Result<JsValue, JsValue> =
+                    wasm_bindgen_futures::JsFuture::from(
+                        window.fetch_with_request(&request)
+                    ).await;
+
+                match resp {
+                    Ok(val) => {
+                        let response: Response = wasm_bindgen::JsCast::dyn_into(val).unwrap();
+                        if response.ok() {
+                            set_submitted.set(true);
+                        } else {
+                            set_error.set(Some("Submission failed. Please try again.".to_string()));
+                        }
+                    }
+                    Err(_) => {
+                        set_error.set(Some("Network error. Please try again.".to_string()));
+                    }
+                }
+
+                set_loading.set(false);
+            });
+        }
     };
 
     view! {
@@ -58,13 +106,6 @@ pub fn ContactPage() -> impl IntoView {
                             "langat-moimaritim"
                         </a>
                     </div>
-                    <div class="contact-item">
-                        <span class="contact-label">"// Twitter / X"</span>
-                        <a href="https://twitter.com/Chum_code" target="_blank" rel="noopener" class="contact-link">
-                            "@Chum_code"
-                        </a>
-                    </div>
-
                     <div class="contact-availability">
                         <span class="avail-dot"></span>
                         "Available for freelance & full-time roles"
@@ -119,8 +160,12 @@ pub fn ContactPage() -> impl IntoView {
                                         on:input=move |ev| set_message.set(event_target_value(&ev))
                                     ></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-full">
-                                    "Send Message →"
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary btn-full"
+                                    disabled=move || loading.get()
+                                >
+                                    {move || if loading.get() { "Sending..." } else { "Send Message →" }}
                                 </button>
                             </form>
                         }.into_any()

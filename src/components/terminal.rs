@@ -13,7 +13,7 @@ pub fn TerminalHero() -> impl IntoView {
             <div class="terminal-body">
                 <div class="terminal-line">
                     <span class="prompt">"langat@portfolio"</span>
-                    <span class="prompt-sep">" ~ "</span>
+                    <span class="prompt-sep">" :~$ "</span>
                     <span class="cmd">"cargo run --release"</span>
                 </div>
                 <div class="terminal-line output">
@@ -34,17 +34,17 @@ pub fn TerminalHero() -> impl IntoView {
                     <span class="green-text">"🦀 Full Stack Engineer. Nairobi, Kenya."</span>
                 </div>
                 <div class="terminal-line output">
-                    <span class="dim">"     Stack  "</span>
+                    <span class="dim">"     Stack:   "</span>
                     <span class="rust-orange">"Rust"</span>
                     <span class="dim">" | Django | Next.js | PostgreSQL"</span>
                 </div>
                 <div class="terminal-line output">
-                    <span class="dim">"    Status  "</span>
-                    <span class="yellow-text">"diving deep into Rust 🚀"</span>
+                    <span class="dim">"    Status:   "</span>
+                    <span class="yellow-text">"diving deep into Rust"</span>
                 </div>
                 <div class="terminal-line">
                     <span class="prompt">"langat@portfolio"</span>
-                    <span class="prompt-sep">" ~ "</span>
+                    <span class="prompt-sep">" :~$ "</span>
                     <span class="cursor-block">"█"</span>
                 </div>
             </div>
