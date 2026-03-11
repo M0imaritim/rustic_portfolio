@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d0d0d"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+
+    <!-- Rust glow -->
+    <radialGradient id="glow" cx="75%" cy="35%" r="45%">
+      <stop offset="0%" stop-color="#e05a2b" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#e05a2b" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Scanlines pattern -->
+    <pattern id="scanlines" x="0" y="0" width="1200" height="4" patternUnits="userSpaceOnUse">
+      <rect width="1200" height="2" fill="transparent"/>
+      <rect y="2" width="1200" height="2" fill="rgba(0,0,0,0.04)"/>
+    </pattern>
+
+    <!-- Grid pattern -->
+    <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a1a" stroke-width="0.5"/>
+    </pattern>
+
+    <clipPath id="card-clip">
+      <rect x="660" y="100" width="460" height="430" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <!-- Base background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.6"/>
+
+  <!-- Rust glow -->
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Scanlines overlay -->
+  <rect width="1200" height="630" fill="url(#scanlines)"/>
+
+  <!-- Left vertical accent line -->
+  <rect x="80" y="0" width="1" height="630" fill="#1e1e1e"/>
+
+  <!-- Top horizontal accent line -->
+  <rect x="0" y="80" width="1200" height="1" fill="#1e1e1e"/>
+
+  <!-- ── Left content block ── -->
+
+  <!-- Eyebrow label -->
+  <text x="120" y="170" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="13" fill="#e05a2b" letter-spacing="3">
+    // PORTFOLIO
+  </text>
+
+  <!-- Name — large display -->
+  <text x="118" y="265" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="72" font-weight="800" fill="#e8e8e8" letter-spacing="-2">
+    Langat
+  </text>
+  <text x="118" y="345" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="72" font-weight="800" fill="#e8e8e8" letter-spacing="-2">
+    Moimaritim
+  </text>
+
+  <!-- Role line -->
+  <text x="120" y="400" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="16" fill="#666">
+    Full Stack Engineer
+    <tspan fill="#2e2e2e"> · </tspan>
+    <tspan fill="#e05a2b">Rust in Progress</tspan>
+    <tspan fill="#888"> · 🇰🇪 Nairobi</tspan>
+  </text>
+
+  <!-- Stack tags row -->
+  <g transform="translate(120, 440)">
+    <!-- Rust tag -->
+    <rect width="64" height="26" rx="4" fill="rgba(224,90,43,0.12)" stroke="rgba(224,90,43,0.35)" stroke-width="1"/>
+    <text x="32" y="17" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#e05a2b" font-weight="700">Rust</text>
+
+    <!-- Leptos tag -->
+    <rect x="74" width="64" height="26" rx="4" fill="rgba(88,166,255,0.08)" stroke="rgba(88,166,255,0.25)" stroke-width="1"/>
+    <text x="106" y="17" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#58a6ff">Leptos</text>
+
+    <!-- Django tag -->
+    <rect x="148" width="68" height="26" rx="4" fill="rgba(63,185,80,0.08)" stroke="rgba(63,185,80,0.25)" stroke-width="1"/>
+    <text x="182" y="17" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#3fb950">Django</text>
+
+    <!-- Next.js tag -->
+    <rect x="226" width="70" height="26" rx="4" fill="rgba(232,232,232,0.05)" stroke="#2e2e2e" stroke-width="1"/>
+    <text x="261" y="17" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#888">Next.js</text>
+
+    <!-- PostgreSQL tag -->
+    <rect x="306" width="100" height="26" rx="4" fill="rgba(232,232,232,0.05)" stroke="#2e2e2e" stroke-width="1"/>
+    <text x="356" y="17" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#888">PostgreSQL</text>
+  </g>
+
+  <!-- URL at bottom left -->
+  <text x="120" y="570" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="13" fill="#444">
+    langat-moimaritim.vercel.app
+  </text>
+
+  <!-- ── Right: Terminal card ── -->
+  <rect x="660" y="100" width="460" height="430" rx="12" fill="#111111" stroke="#242424" stroke-width="1"/>
+
+  <!-- Terminal title bar -->
+  <rect x="660" y="100" width="460" height="44" rx="12" fill="#1e1e1e"/>
+  <rect x="660" y="130" width="460" height="14" fill="#1e1e1e"/>
+  <circle cx="688" cy="122" r="6" fill="#ff5f56"/>
+  <circle cx="708" cy="122" r="6" fill="#ffbd2e"/>
+  <circle cx="728" cy="122" r="6" fill="#27c93f"/>
+  <text x="780" y="127" font-family="'JetBrains Mono', monospace" font-size="12" fill="#444">langat@portfolio ~ zsh</text>
+
+  <!-- Terminal separator -->
+  <rect x="660" y="144" width="460" height="1" fill="#242424"/>
+
+  <!-- Terminal body content -->
+  <g font-family="'JetBrains Mono', 'Courier New', monospace" font-size="13">
+
+    <!-- Line 1: prompt -->
+    <text x="688" y="180" fill="#3fb950">langat@portfolio</text>
+    <text x="820" y="180" fill="#666"> :~$ </text>
+    <text x="858" y="180" fill="#e8e8e8">cargo run --release</text>
+
+    <!-- Line 2 -->
+    <text x="688" y="206" fill="#444">   Compiling </text>
+    <text x="773" y="206" fill="#58a6ff">portfolio</text>
+    <text x="830" y="206" fill="#444"> v0.1.0</text>
+
+    <!-- Line 3 -->
+    <text x="688" y="232" fill="#444">    Finished </text>
+    <text x="773" y="232" fill="#3fb950">release</text>
+    <text x="820" y="232" fill="#444"> [optimized]</text>
+
+    <!-- Line 4 -->
+    <text x="688" y="258" fill="#444">     Running </text>
+    <text x="773" y="258" fill="#58a6ff">./langat_moimaritim</text>
+
+    <!-- Separator -->
+    <rect x="680" y="272" width="428" height="1" fill="#1e1e1e"/>
+
+    <!-- Line 5: output -->
+    <text x="688" y="298" fill="#3fb950">🦀 Full Stack Engineer. Nairobi, Kenya.</text>
+
+    <!-- Line 6 -->
+    <text x="688" y="324" fill="#444">     Stack:   </text>
+    <text x="773" y="324" fill="#e05a2b">Rust</text>
+    <text x="800" y="324" fill="#444"> | Django | Next.js | PG</text>
+
+    <!-- Line 7 -->
+    <text x="688" y="350" fill="#444">    Status:   </text>
+    <text x="773" y="350" fill="#d29922">diving deep into Rust</text>
+
+    <!-- Line 8 -->
+    <text x="688" y="376" fill="#444">   Avail:    </text>
+    <text x="773" y="376" fill="#3fb950">open to work ✓</text>
+
+    <!-- Line 9 -->
+    <text x="688" y="402" fill="#444">    GitHub:   </text>
+    <text x="773" y="402" fill="#58a6ff">github.com/M0imaritim</text>
+
+    <!-- Separator -->
+    <rect x="680" y="416" width="428" height="1" fill="#1e1e1e"/>
+
+    <!-- Line 10: new prompt with cursor -->
+    <text x="688" y="442" fill="#3fb950">langat@portfolio</text>
+    <text x="820" y="442" fill="#666"> :~$ </text>
+    <rect x="858" y="428" width="10" height="18" fill="#e05a2b" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0;0.9" dur="1.2s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- WASM badge bottom right of terminal -->
+    <text x="1010" y="510" font-size="11" fill="#444" text-anchor="end">built with</text>
+    <text x="1095" y="510" font-size="11" fill="#e05a2b" font-weight="700" text-anchor="end">🦀 Leptos + WASM</text>
+  </g>
+
+  <!-- Bottom border accent -->
+  <rect x="0" y="620" width="1200" height="10" fill="url(#bg)"/>
+  <rect x="0" y="619" width="400" height="1" fill="#e05a2b" opacity="0.4"/>
+  <rect x="0" y="619" width="80" height="2" fill="#e05a2b" opacity="0.9"/>
+</svg>

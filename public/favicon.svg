@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
+  <rect x="2" y="2" width="28" height="28" rx="5" fill="#111"/>
+  <rect x="2" y="2" width="28" height="28" rx="5" fill="none" stroke="#e05a2b" stroke-width="1" opacity="0.6"/>
+  <!-- LM monogram -->
+  <text x="16" y="22" text-anchor="middle"
+    font-family="'Segoe UI', Arial, sans-serif"
+    font-weight="800" font-size="14"
+    fill="#e05a2b">LM</text>
+</svg>
