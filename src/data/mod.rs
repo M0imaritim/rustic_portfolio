@@ -127,23 +127,98 @@ pub fn get_projects() -> Vec<Project> {
 pub fn get_skills() -> Vec<Skill> {
     vec![
         // Rust
-        Skill { name: "Rust", level: 55, category: SkillCategory::Rust, note: "Actively deepening" },
-        Skill { name: "Leptos", level: 50, category: SkillCategory::Rust, note: "Full-stack WASM/SSR" },
-        Skill { name: "Axum", level: 52, category: SkillCategory::Rust, note: "REST + server-side" },
-        Skill { name: "Ownership & Lifetimes", level: 48, category: SkillCategory::Rust, note: "In progress" },
+        Skill {
+            name: "Rust",
+            level: 55,
+            category: SkillCategory::Rust,
+            note: "Actively deepening",
+        },
+        Skill {
+            name: "Leptos",
+            level: 50,
+            category: SkillCategory::Rust,
+            note: "Full-stack WASM/SSR",
+        },
+        Skill {
+            name: "Axum",
+            level: 52,
+            category: SkillCategory::Rust,
+            note: "REST + server-side",
+        },
+        Skill {
+            name: "Ownership & Lifetimes",
+            level: 48,
+            category: SkillCategory::Rust,
+            note: "In progress",
+        },
         // Backend
-        Skill { name: "Django", level: 82, category: SkillCategory::Backend, note: "Production grade" },
-        Skill { name: "PostgreSQL", level: 75, category: SkillCategory::Backend, note: "Primary DB" },
-        Skill { name: "Django REST Framework", level: 80, category: SkillCategory::Backend, note: "API design" },
-        Skill { name: "Python", level: 80, category: SkillCategory::Backend, note: "Core language" },
+        Skill {
+            name: "Django",
+            level: 82,
+            category: SkillCategory::Backend,
+            note: "Production grade",
+        },
+        Skill {
+            name: "PostgreSQL",
+            level: 75,
+            category: SkillCategory::Backend,
+            note: "Primary DB",
+        },
+        Skill {
+            name: "Django REST Framework",
+            level: 80,
+            category: SkillCategory::Backend,
+            note: "API design",
+        },
+        Skill {
+            name: "Python",
+            level: 80,
+            category: SkillCategory::Backend,
+            note: "Core language",
+        },
         // Frontend
-        Skill { name: "Next.js", level: 75, category: SkillCategory::Frontend, note: "App Router" },
-        Skill { name: "React", level: 72, category: SkillCategory::Frontend, note: "Hooks + Server Components" },
-        Skill { name: "TypeScript", level: 68, category: SkillCategory::Frontend, note: "Typed JS" },
-        Skill { name: "Tailwind CSS", level: 80, category: SkillCategory::Frontend, note: "Preferred styling" },
+        Skill {
+            name: "Next.js",
+            level: 75,
+            category: SkillCategory::Frontend,
+            note: "App Router",
+        },
+        Skill {
+            name: "React",
+            level: 72,
+            category: SkillCategory::Frontend,
+            note: "Hooks + Server Components",
+        },
+        Skill {
+            name: "TypeScript",
+            level: 68,
+            category: SkillCategory::Frontend,
+            note: "Typed JS",
+        },
+        Skill {
+            name: "Tailwind CSS",
+            level: 80,
+            category: SkillCategory::Frontend,
+            note: "Preferred styling",
+        },
         // Infrastructure
-        Skill { name: "Docker", level: 65, category: SkillCategory::Infrastructure, note: "Containerised deploys" },
-        Skill { name: "Railway / Vercel", level: 70, category: SkillCategory::Infrastructure, note: "Cloud hosting" },
-        Skill { name: "Git", level: 78, category: SkillCategory::Infrastructure, note: "Daily workflow" },
+        Skill {
+            name: "Docker",
+            level: 65,
+            category: SkillCategory::Infrastructure,
+            note: "Containerised deploys",
+        },
+        Skill {
+            name: "Railway / Vercel",
+            level: 70,
+            category: SkillCategory::Infrastructure,
+            note: "Cloud hosting",
+        },
+        Skill {
+            name: "Git",
+            level: 78,
+            category: SkillCategory::Infrastructure,
+            note: "Daily workflow",
+        },
     ]
 }

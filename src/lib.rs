@@ -16,13 +16,14 @@ pub fn main() {
     })
 }
 
-
 use leptos::prelude::*;
 use leptos_meta::*;
 use leptos_router::{components::*, path};
 
-use crate::pages::{home::HomePage, projects::ProjectsPage, iot::IoTPage, contact::ContactPage, not_found::NotFound};
 use crate::components::nav::Nav;
+use crate::pages::{
+    contact::ContactPage, home::HomePage, iot::IoTPage, not_found::NotFound, projects::ProjectsPage,
+};
 
 #[component]
 pub fn App() -> impl IntoView {

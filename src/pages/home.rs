@@ -1,9 +1,9 @@
+use crate::components::project_card::ProjectCard;
+use crate::components::skills::SkillsGrid;
+use crate::components::terminal::TerminalHero;
+use crate::data::get_projects;
 use leptos::prelude::*;
 use leptos_router::components::A;
-use crate::components::terminal::TerminalHero;
-use crate::components::skills::SkillsGrid;
-use crate::components::project_card::ProjectCard;
-use crate::data::get_projects;
 
 #[component]
 pub fn HomePage() -> impl IntoView {

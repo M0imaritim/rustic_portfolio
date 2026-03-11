@@ -1,6 +1,6 @@
-use leptos::prelude::*;
 use crate::components::project_card::ProjectCard;
 use crate::data::{get_projects, ProjectStatus};
+use leptos::prelude::*;
 
 #[component]
 pub fn ProjectsPage() -> impl IntoView {
@@ -10,12 +10,20 @@ pub fn ProjectsPage() -> impl IntoView {
 
     let filtered = move || {
         let f = filter.get();
-        all_projects.iter().filter(|p| match f.as_str() {
-            "live" => p.status == ProjectStatus::Live,
-            "wip" => p.status == ProjectStatus::InProgress,
-            "rust" => p.tags.contains(&"Rust") || p.tags.contains(&"Leptos") || p.tags.contains(&"Axum"),
-            _ => true,
-        }).cloned().collect::<Vec<_>>()
+        all_projects
+            .iter()
+            .filter(|p| match f.as_str() {
+                "live" => p.status == ProjectStatus::Live,
+                "wip" => p.status == ProjectStatus::InProgress,
+                "rust" => {
+                    p.tags.contains(&"Rust")
+                        || p.tags.contains(&"Leptos")
+                        || p.tags.contains(&"Axum")
+                }
+                _ => true,
+            })
+            .cloned()
+            .collect::<Vec<_>>()
     };
 
     view! {

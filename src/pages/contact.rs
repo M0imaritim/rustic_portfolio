@@ -28,10 +28,7 @@ pub fn ContactPage() -> impl IntoView {
         set_error.set(None);
         set_loading.set(true);
 
-        let _body = format!(
-            r#"{{"name":"{}","email":"{}","message":"{}"}}"#,
-            n, e, m
-        );
+        let _body = format!(r#"{{"name":"{}","email":"{}","message":"{}"}}"#, n, e, m);
 
         #[cfg(feature = "hydrate")]
         {
@@ -45,19 +42,19 @@ pub fn ContactPage() -> impl IntoView {
                 opts.set_mode(RequestMode::Cors);
                 opts.set_body(&JsValue::from_str(&body));
 
-                let request = Request::new_with_str_and_init(
-                    "https://formspree.io/f/xeojbpjd",
-                    &opts,
-                ).unwrap();
+                let request =
+                    Request::new_with_str_and_init("https://formspree.io/f/xeojbpjd", &opts)
+                        .unwrap();
 
-                request.headers().set("Content-Type", "application/json").unwrap();
+                request
+                    .headers()
+                    .set("Content-Type", "application/json")
+                    .unwrap();
                 request.headers().set("Accept", "application/json").unwrap();
 
                 let window = web_sys::window().unwrap();
                 let resp: Result<JsValue, JsValue> =
-                    wasm_bindgen_futures::JsFuture::from(
-                        window.fetch_with_request(&request)
-                    ).await;
+                    wasm_bindgen_futures::JsFuture::from(window.fetch_with_request(&request)).await;
 
                 match resp {
                     Ok(val) => {

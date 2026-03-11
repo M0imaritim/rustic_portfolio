@@ -1,5 +1,5 @@
-use leptos::prelude::*;
 use crate::data::{Skill, SkillCategory};
+use leptos::prelude::*;
 
 #[component]
 pub fn SkillBar(skill: Skill) -> impl IntoView {
@@ -34,10 +34,26 @@ pub fn SkillsGrid() -> impl IntoView {
 
     let all_skills = get_skills();
 
-    let rust_skills: Vec<_> = all_skills.iter().filter(|s| s.category == SkillCategory::Rust).cloned().collect();
-    let backend_skills: Vec<_> = all_skills.iter().filter(|s| s.category == SkillCategory::Backend).cloned().collect();
-    let frontend_skills: Vec<_> = all_skills.iter().filter(|s| s.category == SkillCategory::Frontend).cloned().collect();
-    let infra_skills: Vec<_> = all_skills.iter().filter(|s| s.category == SkillCategory::Infrastructure).cloned().collect();
+    let rust_skills: Vec<_> = all_skills
+        .iter()
+        .filter(|s| s.category == SkillCategory::Rust)
+        .cloned()
+        .collect();
+    let backend_skills: Vec<_> = all_skills
+        .iter()
+        .filter(|s| s.category == SkillCategory::Backend)
+        .cloned()
+        .collect();
+    let frontend_skills: Vec<_> = all_skills
+        .iter()
+        .filter(|s| s.category == SkillCategory::Frontend)
+        .cloned()
+        .collect();
+    let infra_skills: Vec<_> = all_skills
+        .iter()
+        .filter(|s| s.category == SkillCategory::Infrastructure)
+        .cloned()
+        .collect();
 
     view! {
         <div class="skills-grid">
