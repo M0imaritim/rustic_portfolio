@@ -37,7 +37,7 @@ pub fn ContactPage() -> impl IntoView {
             use web_sys::{Request, RequestInit, RequestMode, Response};
 
             spawn_local(async move {
-                let mut opts = RequestInit::new();
+                let opts = RequestInit::new();
                 opts.set_method("POST");
                 opts.set_mode(RequestMode::Cors);
                 opts.set_body(&JsValue::from_str(&body));
