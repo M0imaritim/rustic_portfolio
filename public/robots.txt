@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://langat-moimaritim.vercel.app/sitemap.xml
