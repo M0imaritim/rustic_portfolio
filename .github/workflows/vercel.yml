@@ -94,7 +94,7 @@ jobs:
           ./trunk --version
 
       - name: Build with Trunk
-        run: ./trunk build --release
+        run: ./trunk build --release --features hydrate
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
