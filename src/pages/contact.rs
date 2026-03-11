@@ -5,7 +5,7 @@ pub fn ContactPage() -> impl IntoView {
     let (name, set_name) = signal(String::new());
     let (email, set_email) = signal(String::new());
     let (message, set_message) = signal(String::new());
-    let (submitted, _set_submitted) = signal(false);
+    let (submitted, set_submitted) = signal(false);
     let (error, set_error) = signal(Option::<String>::None);
     let (loading, set_loading) = signal(false);
 
@@ -28,7 +28,7 @@ pub fn ContactPage() -> impl IntoView {
         set_error.set(None);
         set_loading.set(true);
 
-        let _body = format!(r#"{{"name":"{}","email":"{}","message":"{}"}}"#, n, e, m);
+        let body = format!(r#"{{"name":"{}","email":"{}","message":"{}"}}"#, n, e, m);
 
         #[cfg(feature = "hydrate")]
         {
